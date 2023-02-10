@@ -4,3 +4,12 @@ exports.getPosts = (req, res) => {
     });
 }
 
+exports.createPost = (req, res, next) => {
+    const title = req.body.title;
+    const content = req.body.content;
+    //POST DB
+    res.status(201).json({
+        message: 'Post created succesfully',
+        post: { id: new Date().toISOString(), title: title, content: content }
+    });
+};
